@@ -13,20 +13,25 @@ class HomeLayout extends React.Component{
         return(
             <div>
                 <header className={style.header}>
-                    <Link to="/">ReactManager</Link>
+                    <Link to="/">陈鑫一</Link>
                 </header>
 
                 <main className={style.main}>
 
                     <div className={style.menu}>
                         <Menu mode="inline" theme="dark" style={{width:'240px'}}>
-                            <SubMenu key="user" title={<span><Icon type="user"/><span>用户管理</span></span>}>
+                            <SubMenu key="user" title={<span><Icon type="book"/><span>文章</span></span>}>
                                 <MenuItem key="user-list">
-                                    <Link to="/user/list">用户列表</Link>
+                                    <Link to="/user/list">管理文章</Link>
                                 </MenuItem>
                                 <MenuItem key="user-add">
-                                    <Link to="/user/add">添加用户</Link>
+                                    <Link to="/user/add">添加文章</Link>
                                 </MenuItem>
+
+                                <MenuItem key="user-content">
+                                    <Link to="/user/content">文章</Link>
+                                </MenuItem>
+
                             </SubMenu>
                         </Menu>
                     </div>

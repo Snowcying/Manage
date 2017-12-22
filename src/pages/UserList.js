@@ -46,7 +46,7 @@ class UserList extends React.Component {
                 dataIndex: 'id'
             },
             {
-                title: '用户名',
+                title: '作者',
                 dataIndex: 'name'
             },
             {

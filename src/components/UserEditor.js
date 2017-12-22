@@ -7,13 +7,21 @@ import request from '../utils/request';
 
 
 const FormItem=Form.Item
-
+const { TextArea } = Input;
 const formLayout = {
     labelCol: {
         span: 4
     },
     wrapperCol: {
         span: 16
+    }
+};
+const formLayoutContent = {
+    labelCol: {
+        span: 40
+    },
+    wrapperCol: {
+        span: 160
     }
 };
 
@@ -71,7 +79,9 @@ class UserEditor extends React.Component
 
                 <div style={{width:'400px'}}>
                     <Form onSubmit={(e)=>this.handleSubmit(e)}>
-                        <FormItem label='用户名:' {...formLayout}>
+
+
+                        <FormItem label='作者:' {...formLayout}>
                             {getFieldDecorator('name',{
                                 rules:[
                                     {
@@ -87,40 +97,60 @@ class UserEditor extends React.Component
                                 <Input type='text'/>
                             )}
                         </FormItem>
-                        <FormItem label='年龄' {...formLayout}>
-                            {getFieldDecorator('age',{
+
+
+                        {/*<FormItem label='年龄' {...formLayout}>*/}
+                            {/*{getFieldDecorator('age',{*/}
+                                {/*rules:[*/}
+                                    {/*{*/}
+                                        {/*required:true,*/}
+                                        {/*message:'请输入年龄',*/}
+                                        {/*type:'number'*/}
+                                    {/*},*/}
+                                    {/*{*/}
+                                        {/*min:1,*/}
+                                        {/*max:100,*/}
+                                        {/*message:'请输入1-100',*/}
+                                        {/*type:'number'*/}
+                                    {/*}*/}
+                                {/*]*/}
+                            {/*})(*/}
+                                {/*<InputNumber/>*/}
+                            {/*)}*/}
+                        {/*</FormItem>*/}
+                        {/*<FormItem label='性别' {...formLayout}>*/}
+                            {/*{getFieldDecorator('gender',{*/}
+                                {/*rules:[*/}
+                                    {/*{*/}
+                                        {/*required:true,*/}
+                                        {/*message:'请选择性别'*/}
+                                    {/*},*/}
+                                {/*]*/}
+                            {/*})(*/}
+                                {/*<Select placeholder='请选择'>*/}
+                                    {/*<Select.Option value='male'>男</Select.Option>*/}
+                                    {/*<Select.Option value='female'>女</Select.Option>*/}
+                                {/*</Select>*/}
+                            {/*)}*/}
+                        {/*</FormItem>*/}
+
+                        <FormItem label='内容' {...formLayoutContent}>
+                            {getFieldDecorator('content',{
                                 rules:[
                                     {
                                         required:true,
-                                        message:'请输入年龄',
-                                        type:'number'
+                                        message:'请输入内容'
                                     },
                                     {
-                                        min:1,
-                                        max:100,
-                                        message:'请输入1-100',
-                                        type:'number'
+                                        //pattern:/^.{1,8000}$/,
+                                        // message:'最多八千个字符'
                                     }
                                 ]
                             })(
-                                <InputNumber/>
+                                <TextArea rows={10} />
                             )}
                         </FormItem>
-                        <FormItem label='性别' {...formLayout}>
-                            {getFieldDecorator('gender',{
-                                rules:[
-                                    {
-                                        required:true,
-                                        message:'请选择性别'
-                                    },
-                                ]
-                            })(
-                                <Select placeholder='请选择'>
-                                    <Select.Option value='male'>男</Select.Option>
-                                    <Select.Option value='female'>女</Select.Option>
-                                </Select>
-                            )}
-                        </FormItem>
+
                         <FormItem wrapperCol={{...formLayout.wrapperCol,offset:formLayout.labelCol.span}}>
                             <Button type='primary' htmlType='submit'>提交</Button>
                         </FormItem>

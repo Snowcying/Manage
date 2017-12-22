@@ -7,6 +7,8 @@ import UserListPage from './pages/UserList'
 import UserEditPage from './pages/UserEdit'
 import LoginPage from './pages/Login'
 import HomeLayout from './layouts/HomeLayout'
+import UserContentPage from "./pages/UserContent";
+
 ReactDOM.render((
 
     <Router history={browserHistory}>
@@ -14,6 +16,9 @@ ReactDOM.render((
             <Route path="/" component={HomePage} />
             <Route path="/user/add" component={UserAddPage}/>
             <Route path="/user/list" component={UserListPage}/>
+
+            <Route path="/user/content" component={UserContentPage}/>
+
             <Route path="/user/edit/:id" component={UserEditPage}/>
             <Route path="/login" component={LoginPage}/>
         </Route>
